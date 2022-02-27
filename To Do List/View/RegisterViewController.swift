@@ -28,7 +28,14 @@ class RegisterViewController: UIViewController {
                         let auth = Auth.auth()
                         auth.createUser(withEmail: emailRecovered, password: passwordRecovered) { (user, erro) in
                             if erro == nil {
-                                print("User cadastrado")
+                                
+                                if user == nil {
+                                    self.showAlert(titulo:"Error", mensagem:"Wrong email or password, please try again.")
+                                }else{
+                                    //Redireciona o usuario para a tela inicial
+                                    self.performSegue(withIdentifier: "registerSegue", sender: nil)
+                                }
+                                
                             }else{
                               print("Erro ao cadastrar")
                             }
@@ -37,18 +44,7 @@ class RegisterViewController: UIViewController {
                         
                     }else{
                         //Alert
-                        showAlert()
-                        func showAlert() {
-                               let alert = UIAlertController(title: "Error", message: "Passwords must be the same, please try again.", preferredStyle: .alert)
-                               
-                               alert.addAction(UIAlertAction(title: "Ok", style: .default, handler: { action in print("apertou Ok")}))
-                               
-                               present(alert, animated: true)
-                           }
-                           
-                           func showActionsheet() {
-                               
-                           }
+                        self.showAlert(titulo:"Error", mensagem:"Passwords must be the same, please try again.")
                         //Fim cod alert
                     }
                     //Fim do cod de confirmar senha
@@ -62,6 +58,15 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    //Alert
+    func showAlert(titulo: String, mensagem: String){
+        let alert = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
+        let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        
+        alert.addAction( action )
+        present(alert, animated: true, completion: nil)
     }
 
     //para mostrar o navigation bar

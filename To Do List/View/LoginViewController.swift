@@ -21,10 +21,11 @@ class LoginViewController: UIViewController {
                 let auth = Auth.auth()
                 auth.signIn(withEmail: emailRecovered, password: passwordRecovered) { (user, erro) in
                     if erro == nil {
-                        if erro == nil {
+                        if user == nil {
                            
                         }else{
-                            print("ok")
+                            //Redireciona o usuario para a tela inicial
+                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
                         }
                     }else{
                         self.showAlert(titulo:"Error", mensagem:"Wrong email or password, please try again.")
@@ -40,6 +41,7 @@ class LoginViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    //Alert
     func showAlert(titulo: String, mensagem: String){
         let alert = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
         let action = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
