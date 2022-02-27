@@ -69,6 +69,7 @@
                     <connections>
                         <outlet property="email" destination="qcW-et-KV8" id="9wZ-Ep-uLR"/>
                         <outlet property="password" destination="2ft-Z6-MId" id="SUr-j8-ioc"/>
+                        <segue destination="TtL-LV-eBD" kind="presentation" identifier="loginSegue" id="wuS-fx-GqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -141,18 +142,19 @@
                         <outlet property="email" destination="XDZ-0l-B2L" id="fUp-ya-1iR"/>
                         <outlet property="name" destination="p4S-41-8yW" id="zVV-Wc-sqI"/>
                         <outlet property="password" destination="Qtp-td-FDB" id="etC-lI-a77"/>
+                        <segue destination="TtL-LV-eBD" kind="presentation" identifier="registerSegue" id="yEp-nt-fMg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOD-f3-pQ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.9710144927537" y="491.51785714285711"/>
+            <point key="canvasLocation" x="391" y="810"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="QU7-zC-GoG">
             <objects>
                 <viewController id="TtL-LV-eBD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wq9-G0-L7E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="yN1-K2-2EB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -160,7 +162,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1157.9710144927537" y="-157.36607142857142"/>
+            <point key="canvasLocation" x="1323" y="435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WtK-ea-MIb">
@@ -181,6 +183,9 @@
             <point key="canvasLocation" x="-520.28985507246375" y="134.59821428571428"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yEp-nt-fMg"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="telaLogin" width="207" height="448"/>
         <systemColor name="systemBackgroundColor">
