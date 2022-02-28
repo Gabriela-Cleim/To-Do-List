@@ -7,14 +7,16 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
 
 class RegisterViewController: UIViewController {
-
+    
     @IBOutlet weak var name: UITextField!
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
-    //var auth: Auth!
+    var auth: Auth!
+    var firestore: Firestore!
     
     
     
@@ -24,49 +26,72 @@ class RegisterViewController: UIViewController {
         if let emailRecovered = self.email.text{
             if let passwordRecovered = self.password.text{
                 if let passwordConfirmR = self.confirmPassword.text {
-                    
-                    //Para confirmar se as senhas são iguais
-                    if passwordRecovered == passwordConfirmR {
+                    if let nameRecovered = self.name.text{
                         
-                        //Criar conta
-                        let auth = Auth.auth()
-                        auth.createUser(withEmail: emailRecovered, password: passwordRecovered) { (user, erro) in
-                            if erro == nil {
-                                
-                                if user == nil {
+                        //Para confirmar se as senhas são iguais
+                        if passwordRecovered == passwordConfirmR {
+                            
+                            
+                            
+                            //Criar conta
+                            let auth = Auth.auth()
+                            auth.createUser(withEmail: emailRecovered, password: passwordRecovered) { (userR, erro) in
+                                if erro == nil {
+                                    
+                                    //para salvar dados dos usuarios
+                                    if let idUser = userR?.user.uid {
+                                        self.firestore.collection("Users")
+                                            .document( idUser )
+                                            .setData([
+                                                "name": nameRecovered,
+                                                "email": emailRecovered
+                                            ])
+                                    }
+                                }else{
+                                    print("Erro ao cadastrar")
+                                }
+                                if userR == nil {
                                     self.showAlert(titulo:"Error", mensagem:"Wrong email or password, please try again.")
                                 }else{
                                     //Redireciona o usuario para a tela inicial
-                                   self.performSegue(withIdentifier: "registerSegue", sender: nil)
+                                    self.performSegue(withIdentifier: "registerSegue", sender: nil)
                                 }
-                                
-                            }else{
-                              print("Erro ao cadastrar")
                             }
+                            
+                            
+                        }else{
+                            //Alert
+                            self.showAlert(titulo:"Error", mensagem:"Passwords must be the same, please try again.")
+                            //Fim cod alert
                         }
-                        
-                        
-                    }else{
-                        //Alert
-                        self.showAlert(titulo:"Error", mensagem:"Passwords must be the same, please try again.")
-                        //Fim cod alert
+                        //Fim do cod de confirmar senha
                     }
-                    //Fim do cod de confirmar senha
-                    
                 }
             }
         }
     }
     
-    /*
-     cod antigo
-     @IBAction func registerButton(_ sender: Any) {
+    
+     /*@IBAction func registerButton(_ sender: Any) {
         
-        if let nome = name.text{
+        if let name = name.text{
             if let email = email.text{
                 if let password = password.text{
                     if let confirmPassword = confirmPassword.text{
                         
+                        auth.createUser(withEmail: email, password: password) { (user, erro) in
+                            if erro == nil {
+                                //para salvar dados dos usuarios
+                                if let idUser = user?.user.uid {
+                                self.firestore.collection("Users")
+                                .document( idUser )
+                                .setData([
+                                "name": name,
+                                "email": email
+                                ])
+                                }
+                            }
+                    }
                     }else{
                         self.showAlert(titulo:"Error", mensagem:"Password is empty, please try again.")
                     }
@@ -86,10 +111,10 @@ class RegisterViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        firestore = Firestore.firestore()
+        auth = Auth.auth()
         
-        //auth = Auth.auth()
-
-      
+        
     }
     
     //Alert
@@ -100,10 +125,10 @@ class RegisterViewController: UIViewController {
         alert.addAction( action )
         present(alert, animated: true, completion: nil)
     }
-
+    
     //para mostrar o navigation bar
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
-
+    
 }
