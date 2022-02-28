@@ -48,7 +48,10 @@ class LoginViewController: UIViewController {
         resetForm()
 
     }
-    //text de formato invalido do email
+    
+    
+    
+    //invalid email
     func resetForm() {
         loginButton.isEnabled = false
         
@@ -98,7 +101,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func loginButtonn(_ sender: Any) {
         resetForm()
-    }
+    }//fim do cod do invalid email
     
     
     //Alert
