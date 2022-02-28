@@ -84,10 +84,10 @@
 		77C3F1E327CB3A6B008A1313 /* To Do List */ = {
 			isa = PBXGroup;
 			children = (
+				77E649AC27CD17A300CE73BE /* Controller */,
 				77EE44D027CB4CDC00961267 /* View */,
 				77C3F1E427CB3A6B008A1313 /* AppDelegate.swift */,
 				77C3F1E627CB3A6B008A1313 /* SceneDelegate.swift */,
-				77C3F1EA27CB3A6B008A1313 /* Main.storyboard */,
 				77C3F1ED27CB3A6C008A1313 /* Assets.xcassets */,
 				77C3F1EF27CB3A6C008A1313 /* LaunchScreen.storyboard */,
 				77C3F1F227CB3A6C008A1313 /* Info.plist */,
@@ -96,11 +96,19 @@
 			path = "To Do List";
 			sourceTree = "<group>";
 		};
-		77EE44D027CB4CDC00961267 /* View */ = {
+		77E649AC27CD17A300CE73BE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
 				77EE44D127CB4D2200961267 /* LoginViewController.swift */,
 				77EE44D327CB4D4200961267 /* RegisterViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		77EE44D027CB4CDC00961267 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				77C3F1EA27CB3A6B008A1313 /* Main.storyboard */,
 			);
 			path = View;
 			sourceTree = "<group>";
