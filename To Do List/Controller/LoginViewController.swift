@@ -11,6 +11,7 @@ import FirebaseAuth
 class LoginViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
+    @IBOutlet weak var emailError: UILabel!
     
     @IBAction func login(_ sender: Any) {
         //Para recuperar os dados digitados
@@ -39,8 +40,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
     }
+    
     //Alert
     func showAlert(titulo: String, mensagem: String){
         let alert = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
