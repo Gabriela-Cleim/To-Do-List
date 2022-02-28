@@ -14,6 +14,10 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var confirmPassword: UITextField!
+    //var auth: Auth!
+    
+    
+    
     
     @IBAction func register(_ sender: Any) {
         //Para recuperar os dados digitados
@@ -33,7 +37,7 @@ class RegisterViewController: UIViewController {
                                     self.showAlert(titulo:"Error", mensagem:"Wrong email or password, please try again.")
                                 }else{
                                     //Redireciona o usuario para a tela inicial
-                                    self.performSegue(withIdentifier: "registerSegue", sender: nil)
+                                   self.performSegue(withIdentifier: "registerSegue", sender: nil)
                                 }
                                 
                             }else{
@@ -54,10 +58,38 @@ class RegisterViewController: UIViewController {
         }
     }
     
+    /*
+     cod antigo
+     @IBAction func registerButton(_ sender: Any) {
+        
+        if let nome = name.text{
+            if let email = email.text{
+                if let password = password.text{
+                    if let confirmPassword = confirmPassword.text{
+                        
+                    }else{
+                        self.showAlert(titulo:"Error", mensagem:"Password is empty, please try again.")
+                    }
+                }else{
+                    self.showAlert(titulo:"Error", mensagem:"Password is empty, please try again.")
+                }
+            }else{
+                self.showAlert(titulo:"Error", mensagem:"Email is empty, please try again.")
+            }
+        }else{
+            self.showAlert(titulo:"Error", mensagem:"Name is empty, please try again.")
+        }
+    }*/
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //auth = Auth.auth()
 
-        // Do any additional setup after loading the view.
+      
     }
     
     //Alert
