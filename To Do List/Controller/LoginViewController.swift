@@ -21,23 +21,17 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         //Para recuperar os dados digitados
-        if let emailRecovered = self.email.text{
-            if let passwordRecovered = self.password.text{
-                
-                //Cod para autenticar user
-                let auth = Auth.auth()
-                auth.signIn(withEmail: emailRecovered, password: passwordRecovered) { (user, erro) in
-                    if erro == nil {
-                        if user == nil {
-                           
-                        }else{
-                            //Redireciona o usuario para a tela inicial
-                            self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                        }
-                    }else{
-                        self.showAlert(titulo:"Error", mensagem:"Wrong email or password, please try again.")
-                    }
+        if let emailRecovered = self.email.text, let passwordRecovered = self.password.text {
+            //Cod para autenticar user
+            let auth = Auth.auth()
+            auth.signIn(withEmail: emailRecovered, password: passwordRecovered) { (user, erro) in
+                if erro != nil{
+                    self.showAlert(titulo:"Error", mensagem:"Wrong email or password, please try again.")
                 }
+                else if user != nil{
+                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                }
+                
             }
         }
     }
