@@ -249,13 +249,10 @@
                         <viewLayoutGuide key="safeArea" id="yN1-K2-2EB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-<<<<<<< HEAD
                     <connections>
                         <outlet property="hourLabel" destination="TNl-Rf-pop" id="AAN-Kb-TGl"/>
                     </connections>
-=======
                     <navigationItem key="navigationItem" id="n0r-UI-res"/>
->>>>>>> 47aca6bca818691911111a1ca9f52b72e156a216
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
