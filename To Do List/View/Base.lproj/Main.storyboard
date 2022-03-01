@@ -178,7 +178,7 @@
             <objects>
                 <viewController id="TtL-LV-eBD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wq9-G0-L7E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="yN1-K2-2EB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -188,6 +188,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1323" y="435"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="9wb-rK-wGX">
+            <objects>
+                <viewController storyboardIdentifier="DetalhesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YW7-6v-cdt" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="VPO-Iv-M8Y">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="qfj-h6-dPg"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Nai-ts-Mr8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2283" y="893"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WtK-ea-MIb">
@@ -209,7 +224,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yEp-nt-fMg"/>
+        <segue reference="wuS-fx-GqF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="telaLogin" width="207" height="448"/>
