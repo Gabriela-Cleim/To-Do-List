@@ -189,10 +189,10 @@
             </objects>
             <point key="canvasLocation" x="1323" y="435"/>
         </scene>
-        <!--View Controller-->
+        <!--Task View Controller-->
         <scene sceneID="9wb-rK-wGX">
             <objects>
-                <viewController storyboardIdentifier="DetalhesView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YW7-6v-cdt" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YW7-6v-cdt" customClass="TaskViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="VPO-Iv-M8Y">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
