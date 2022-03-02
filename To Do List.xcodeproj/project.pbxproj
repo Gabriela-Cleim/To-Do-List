@@ -20,6 +20,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0842473127CD228A00E8205D /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		34F86E5D27CE4BB0000BDBD1 /* TaskViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewController.swift; sourceTree = "<group>"; };
 		48229EE968E0C9027ACA9196 /* Pods-To Do List.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To Do List.debug.xcconfig"; path = "Target Support Files/Pods-To Do List/Pods-To Do List.debug.xcconfig"; sourceTree = "<group>"; };
 		75F0DB3E3E4EA48365D05122 /* Pods_To_Do_List.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_To_Do_List.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,6 +105,7 @@
 				77EE44D127CB4D2200961267 /* LoginViewController.swift */,
 				77EE44D327CB4D4200961267 /* RegisterViewController.swift */,
 				34F86E5D27CE4BB0000BDBD1 /* TaskViewController.swift */,
+				0842473127CD228A00E8205D /* HomeViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
