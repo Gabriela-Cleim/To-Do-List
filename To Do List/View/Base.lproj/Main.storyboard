@@ -197,6 +197,10 @@
                                             </backgroundConfiguration>
                                             <fontDescription key="titleFontDescription" type="system" pointSize="24"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <action selector="task:" destination="Wk3-ag-3io" eventType="touchUpInside" id="UUE-Ib-j7o"/>
+                                            <segue destination="FYC-xz-f2C" kind="showDetail" identifier="homeSegue" id="dyr-hB-G6g"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Welcome Back, User!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0X5-zC-Bvd">
                                         <rect key="frame" x="88" y="240" width="238" height="34"/>
@@ -249,14 +253,87 @@
                         <viewLayoutGuide key="safeArea" id="yN1-K2-2EB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="n0r-UI-res"/>
                     <connections>
                         <outlet property="hourLabel" destination="TNl-Rf-pop" id="AAN-Kb-TGl"/>
                     </connections>
-                    <navigationItem key="navigationItem" id="n0r-UI-res"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Wk3-ag-3io" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1321.7391304347827" y="434.59821428571428"/>
+            <point key="canvasLocation" x="1501" y="435"/>
+        </scene>
+        <!--Tasks View Controller-->
+        <scene sceneID="g4X-vL-j6x">
+            <objects>
+                <viewController id="FYC-xz-f2C" customClass="TasksViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="9b2-Nw-CBj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="telaRegister" translatesAutoresizingMaskIntoConstraints="NO" id="YAV-Br-D5M">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdv-ir-zF6">
+                                <rect key="frame" x="20" y="268" width="374" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d9O-wx-HgG">
+                                <rect key="frame" x="20" y="348" width="374" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po6-le-dWy">
+                                <rect key="frame" x="47" y="98" width="310" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Let's help you meet up yours tasks" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ECz-dS-Uyg">
+                                <rect key="frame" x="34" y="150" width="351" height="54"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" red="0.55725590869633845" green="0.55725590869633845" blue="0.55725590869633845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cQT-wz-h0J">
+                                <rect key="frame" x="40" y="766" width="354" height="46"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Save ">
+                                    <color key="baseForegroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="savaTask:" destination="FYC-xz-f2C" eventType="touchUpInside" id="Jng-Wz-b0y"/>
+                                </connections>
+                            </button>
+                            <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="KdG-TF-7Xn">
+                                <rect key="frame" x="2" y="506" width="414" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <date key="maximumDate" timeIntervalSinceReferenceDate="1167562800">
+                                    <!--2037-12-31 11:00:00 +0000-->
+                                </date>
+                                <locale key="locale" localeIdentifier="en"/>
+                            </datePicker>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="0ti-kF-dBh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="NOg-e7-J9e"/>
+                    <connections>
+                        <outlet property="NewTask" destination="Rdv-ir-zF6" id="kdt-oC-Iiv"/>
+                        <outlet property="dataPicker" destination="KdG-TF-7Xn" id="uk8-VK-FDM"/>
+                        <outlet property="taskTextField" destination="Rdv-ir-zF6" id="v3d-FP-WE1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lfl-9f-r6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2351" y="435"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WtK-ea-MIb">
@@ -278,12 +355,13 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wuS-fx-GqF"/>
+        <segue reference="yEp-nt-fMg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="966-9665317_placeholder-image-person-jpg.png" width="820" height="678"/>
         <image name="shape" width="250" height="195"/>
         <image name="telaLogin" width="207" height="448"/>
+        <image name="telaRegister" width="207" height="448"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
