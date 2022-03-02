@@ -93,7 +93,7 @@
                         <outlet property="emailTF" destination="qcW-et-KV8" id="W66-uL-nyt"/>
                         <outlet property="loginButton" destination="012-pm-3jb" id="7rm-sz-M2a"/>
                         <outlet property="password" destination="2ft-Z6-MId" id="SUr-j8-ioc"/>
-                        <segue destination="TtL-LV-eBD" kind="presentation" identifier="loginSegue" id="wuS-fx-GqF"/>
+                        <segue destination="TtL-LV-eBD" kind="show" identifier="loginSegue" id="wuS-fx-GqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -173,7 +173,7 @@
             </objects>
             <point key="canvasLocation" x="389.85507246376812" y="809.59821428571422"/>
         </scene>
-        <!--Home View Controller-->
+        <!--Home-->
         <scene sceneID="QU7-zC-GoG">
             <objects>
                 <viewController id="TtL-LV-eBD" customClass="HomeViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -220,7 +220,7 @@
                                 <color key="backgroundColor" red="0.46666666666666667" green="0.8784313725490196" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XIi-Yw-ZDd">
-                                <rect key="frame" x="0.0" y="359" width="414" height="483"/>
+                                <rect key="frame" x="0.0" y="359" width="414" height="537"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="uGh-jm-psd">
@@ -249,14 +249,40 @@
                         <viewLayoutGuide key="safeArea" id="yN1-K2-2EB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Home" id="n0r-UI-res"/>
                     <connections>
                         <outlet property="hourLabel" destination="TNl-Rf-pop" id="AAN-Kb-TGl"/>
                     </connections>
-                    <navigationItem key="navigationItem" id="n0r-UI-res"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1321.7391304347827" y="434.59821428571428"/>
+        </scene>
+        <!--Task View Controller-->
+        <scene sceneID="7Uu-Ya-Hop">
+            <objects>
+                <viewController id="XeT-5d-HS9" customClass="TaskViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="hCk-Ni-ODP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telaRegister" translatesAutoresizingMaskIntoConstraints="NO" id="qWz-nP-Ipl">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="FAt-bV-uii"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="qWz-nP-Ipl" firstAttribute="leading" secondItem="hCk-Ni-ODP" secondAttribute="leading" id="2k8-Ig-7Oc"/>
+                            <constraint firstAttribute="bottom" secondItem="qWz-nP-Ipl" secondAttribute="bottom" id="T14-ps-ggF"/>
+                            <constraint firstItem="qWz-nP-Ipl" firstAttribute="top" secondItem="hCk-Ni-ODP" secondAttribute="top" id="gzF-3P-xVN"/>
+                            <constraint firstAttribute="trailing" secondItem="qWz-nP-Ipl" secondAttribute="trailing" id="pTL-iI-QIy"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xUD-nu-5nw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1321.7391304347827" y="1139.7321428571429"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WtK-ea-MIb">
@@ -266,6 +292,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="fQN-bf-nek">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -284,6 +311,7 @@
         <image name="966-9665317_placeholder-image-person-jpg.png" width="820" height="678"/>
         <image name="shape" width="250" height="195"/>
         <image name="telaLogin" width="207" height="448"/>
+        <image name="telaRegister" width="207" height="448"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
