@@ -300,6 +300,32 @@
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
                             </button>
+                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2kX-gu-5fR">
+                                <rect key="frame" x="49" y="126" width="316" height="85"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task to do:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-iv-vMw">
+                                        <rect key="frame" x="14" y="18" width="106" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean the house" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM0-t2-cbj">
+                                        <rect key="frame" x="14" y="46.5" width="123.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstItem="3JA-iv-vMw" firstAttribute="leading" secondItem="2kX-gu-5fR" secondAttribute="leading" constant="14" id="CN2-NW-Ybk"/>
+                                    <constraint firstAttribute="bottom" secondItem="JM0-t2-cbj" secondAttribute="bottom" constant="18" id="El6-hS-nd5"/>
+                                    <constraint firstAttribute="height" constant="85" id="aLB-E7-CkG"/>
+                                    <constraint firstItem="JM0-t2-cbj" firstAttribute="top" secondItem="3JA-iv-vMw" secondAttribute="bottom" constant="3" id="cmZ-1h-9Oz"/>
+                                    <constraint firstItem="3JA-iv-vMw" firstAttribute="top" secondItem="2kX-gu-5fR" secondAttribute="top" constant="18" id="eZl-VX-J19"/>
+                                    <constraint firstItem="JM0-t2-cbj" firstAttribute="leading" secondItem="2kX-gu-5fR" secondAttribute="leading" constant="14" id="qP3-i0-2fV"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FAt-bV-uii"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
