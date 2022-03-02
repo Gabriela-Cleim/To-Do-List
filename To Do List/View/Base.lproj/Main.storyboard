@@ -326,6 +326,31 @@
                                     <constraint firstItem="JM0-t2-cbj" firstAttribute="leading" secondItem="2kX-gu-5fR" secondAttribute="leading" constant="14" id="qP3-i0-2fV"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleAspectFit" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-1t-F9N">
+                                <rect key="frame" x="49" y="236" width="316" height="164"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AfJ-OC-fgC">
+                                        <rect key="frame" x="14" y="5" width="320" height="435"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xg-oM-IBJ">
+                                                <rect key="frame" x="0.0" y="0.0" width="320" height="216"/>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ik6-V2-txj">
+                                                <rect key="frame" x="0.0" y="219" width="320" height="216"/>
+                                            </datePicker>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.90000000000000002" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="AfJ-OC-fgC" secondAttribute="trailing" constant="14" id="5EO-ui-f0s"/>
+                                    <constraint firstItem="AfJ-OC-fgC" firstAttribute="top" secondItem="Zgg-1t-F9N" secondAttribute="top" constant="5" id="6yy-rm-OTc"/>
+                                    <constraint firstItem="AfJ-OC-fgC" firstAttribute="leading" secondItem="Zgg-1t-F9N" secondAttribute="leading" constant="14" id="Ii6-Gf-Yqe"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FAt-bV-uii"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
