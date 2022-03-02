@@ -15,10 +15,6 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
     
-    
-    
-    
-    
     @IBAction func login(_ sender: Any) {
         //Para recuperar os dados digitados
         if let emailRecovered = self.email.text, let passwordRecovered = self.password.text {
