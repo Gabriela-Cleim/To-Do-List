@@ -269,6 +269,37 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="telaRegister" translatesAutoresizingMaskIntoConstraints="NO" id="qWz-nP-Ipl">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BJJ-5w-sMj">
+                                <rect key="frame" x="49" y="783" width="316" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="hPK-Xa-asU"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="wCW-uk-Tba"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Remove">
+                                    <backgroundConfiguration key="background" cornerRadius="15">
+                                        <color key="backgroundColor" red="0.8980392157" green="0.42352941179999998" blue="0.2666666667" alpha="1" colorSpace="calibratedRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFo-PB-LLB">
+                                <rect key="frame" x="49" y="713" width="316" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="50" id="Xyc-0g-CJY"/>
+                                    <constraint firstAttribute="height" constant="50" id="lRW-yz-6Py"/>
+                                    <constraint firstAttribute="height" relation="lessThanOrEqual" constant="50" id="tkQ-6U-h5e"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Done">
+                                    <backgroundConfiguration key="background" cornerRadius="15">
+                                        <color key="backgroundColor" red="0.32940406630000002" green="0.80784313730000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
+                                    </backgroundConfiguration>
+                                    <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </buttonConfiguration>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="FAt-bV-uii"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
