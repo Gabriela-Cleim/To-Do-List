@@ -10,6 +10,10 @@ import UIKit
 
 class TaskViewController: UIViewController {
     
+    @IBOutlet weak var taskView: UIView!
+    @IBOutlet weak var whenView: UIView!
     override func viewDidLoad() {
+        taskView.layer.cornerRadius = 20
+        whenView.layer.cornerRadius = 20
     }
 }

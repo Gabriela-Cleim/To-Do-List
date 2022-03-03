@@ -375,6 +375,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Task" id="sY6-GD-MqC"/>
+                    <connections>
+                        <outlet property="taskView" destination="2kX-gu-5fR" id="avS-Mt-aEx"/>
+                        <outlet property="whenView" destination="Zgg-1t-F9N" id="5Xp-NE-S7L"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xUD-nu-5nw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
