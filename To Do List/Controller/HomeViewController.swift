@@ -59,7 +59,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     //para esconder o navigation bar
     override func viewWillAppear(_ animated: Bool) {
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     //mostra mensagem inicial de acordo com o horário do sistema
