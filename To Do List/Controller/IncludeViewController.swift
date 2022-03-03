@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import Firebase
+import FirebaseAuth
 
 class IncludeViewController: UIViewController {
     
+    let db = Firestore.firestore()
     
     @IBOutlet weak var newTask: UITextField!
     
@@ -35,6 +38,29 @@ class IncludeViewController: UIViewController {
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
+        //verificar se os dois campos foram preenchidos
+        
+        
+        //conexao com o banco
+        let user = Auth.auth().currentUser
+        if let user = user {
+            db.collection("tasks").addDocument(data: [
+                "Descricao": "Teste Natalia", //colocar o newTask.text,
+                "Status": "Undone",
+                "Data": "Teste",//colocar a data
+                "IdUser": user.uid
+            ])
+            { err in
+                if let err = err {
+                    print("Error writing document: \(err)")
+                } else {
+                    print("Document successfully written!")
+                    //voltar para o home
+                    
+                }
+            }
+        }
+        
     }
     
 
