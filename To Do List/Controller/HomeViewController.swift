@@ -19,6 +19,7 @@ class HomeViewController: UIViewController {
     
 //     Para adicionar as terafas manualmente (depois ligar com o banco e apagar)
     struct Task {
+        var id: String
         var descricao: String
         var status: String
         var data: String
@@ -41,7 +42,7 @@ class HomeViewController: UIViewController {
                 } else {
                     for doc in querySnapshot!.documents {
                         let data = doc.data()
-                        tasks.append(Task(descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
+                        tasks.append(Task(id: doc.documentID, descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
                         self.tableView.reloadData()
                     }
                 }
@@ -114,7 +115,17 @@ extension HomeViewController : UITableViewDataSource {
             print("TESTEEEEE")
             //Deletar o item no array tasks
             tasks.remove(at: indexPath.row)
+            
             // deletar do banco
+            let documentId = tasks[indexPath.row].id
+            db.collection("tasks").document(documentId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            
             tableView.deleteRows(at: [indexPath], with: .fade)
             tableView.endUpdates()
         }
