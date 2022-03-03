@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
-    
+    var auth: Auth!
     
     
     
@@ -46,6 +46,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resetForm()
+        
+        auth = Auth.auth()
+        
+        auth.addStateDidChangeListener { (autenticacao, user) in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }else{
+                print("User não logado")
+            }
+        }
 
     }
     

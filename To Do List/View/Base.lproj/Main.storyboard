@@ -93,7 +93,7 @@
                         <outlet property="emailTF" destination="qcW-et-KV8" id="W66-uL-nyt"/>
                         <outlet property="loginButton" destination="012-pm-3jb" id="7rm-sz-M2a"/>
                         <outlet property="password" destination="2ft-Z6-MId" id="SUr-j8-ioc"/>
-                        <segue destination="TtL-LV-eBD" kind="presentation" identifier="loginSegue" id="wuS-fx-GqF"/>
+                        <segue destination="TtL-LV-eBD" kind="show" identifier="loginSegue" id="wuS-fx-GqF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -166,7 +166,7 @@
                         <outlet property="email" destination="XDZ-0l-B2L" id="fUp-ya-1iR"/>
                         <outlet property="name" destination="p4S-41-8yW" id="zVV-Wc-sqI"/>
                         <outlet property="password" destination="Qtp-td-FDB" id="etC-lI-a77"/>
-                        <segue destination="TtL-LV-eBD" kind="presentation" identifier="registerSegue" id="yEp-nt-fMg"/>
+                        <segue destination="TtL-LV-eBD" kind="show" identifier="registerSegue" id="yEp-nt-fMg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mOD-f3-pQ5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -178,11 +178,23 @@
             <objects>
                 <viewController id="TtL-LV-eBD" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wq9-G0-L7E">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="HI" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n6F-yQ-quE">
+                                <rect key="frame" x="164" y="341" width="17" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="yN1-K2-2EB"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
+                    <navigationItem key="navigationItem" id="yFk-bU-KUZ">
+                        <barButtonItem key="rightBarButtonItem" title="logout" id="jZQ-U0-laO"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
