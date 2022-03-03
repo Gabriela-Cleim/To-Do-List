@@ -16,4 +16,8 @@ class TaskViewController: UIViewController {
         taskView.layer.cornerRadius = 20
         whenView.layer.cornerRadius = 20
     }
+    //para mostrar o navigation bar
+        override func viewWillAppear(_ animated: Bool) {
+            navigationController?.setNavigationBarHidden(false, animated: true)
+        }
 }

@@ -35,13 +35,13 @@ class HomeViewController: UIViewController {
         if let user = user {
             let email = user.email
             let uid = user.uid
-            db.collection("tasks").whereField("IdUser", isEqualTo: uid).getDocuments() { [self] (querySnapshot, err) in
+            db.collection("tasks").whereField("IdUser", isEqualTo: uid).addSnapshotListener() { [self] (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for doc in querySnapshot!.documents {
                         let data = doc.data()
-                        tasks.append(Task(descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
+                        self.tasks.append(Task(descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
                         self.tableView.reloadData()
                     }
                 }
@@ -52,6 +52,11 @@ class HomeViewController: UIViewController {
         tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
         
         showTimeLabel()
+    }
+    
+    //para esconder o navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //mostra mensagem inicial de acordo com o horário do sistema
@@ -90,6 +95,11 @@ extension HomeViewController : UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         print(self.tasks[indexPath.row])
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        
+    }
+    
     
     @objc func switchChanged(_ sender: UISwitch!) {
             print ("changed ")
