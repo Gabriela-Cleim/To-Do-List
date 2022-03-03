@@ -11,8 +11,30 @@ import Foundation
 class HomeViewController: UIViewController {
     
     @IBOutlet weak var hourLabel: UILabel!
+    @IBOutlet var tableView: UITableView!
+    
+    
+//     Para adicionar as terafas manualmente (depois ligar com o banco e apagar)
+    struct Task {
+        let taskName: String
+    }
+    
+    var tasks: [Task] = [
+        Task(taskName: "Limpar Casa"),
+        Task(taskName: "Fazer dever"),
+        Task(taskName: "Comprar pao"),
+        Task(taskName: "Ir na esquina"),
+        Task(taskName: "Faculdade"),
+        Task(taskName: "Fazer alguma coisa")
+        
+    ]
+// fim das tarefas
     
     override func viewDidLoad() {
+        super.viewDidLoad()
+        tableView.dataSource = self
+        tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
+        
         showTimeLabel()
     }
     
@@ -29,5 +51,21 @@ class HomeViewController: UIViewController {
         }
     }
     
-    
 }
+
+extension HomeViewController : UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tasks.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TaskCell
+//        cell.textLabel?.text = tasks[indexPath.row].taskName
+        cell.taskLabel.text = tasks[indexPath.row].taskName
+        return cell
+        
+    }
+}
+
+ 
+
