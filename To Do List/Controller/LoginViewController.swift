@@ -14,7 +14,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
-    
+    var auth: Auth!
     
     
     
@@ -111,6 +111,13 @@ class LoginViewController: UIViewController {
     }
     
     
+    @IBAction func logout(_ sender: Any){
+             do {
+                 try auth.signOut()
+             } catch {
+                 print("Erro ao deslogar")
+             }
+         }
     
     //para esconder o navigation bar
     override func viewWillAppear(_ animated: Bool) {
