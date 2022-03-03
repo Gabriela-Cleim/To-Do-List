@@ -9,25 +9,32 @@ import UIKit
 
 class _ViewController: UIViewController {
 
-    @IBOutlet weak var new: UILabel!
+    @IBOutlet weak var date: UITextField!
     
-    @IBOutlet weak var datePicker: UIDatePicker!
-    
-    let formatter = DateFormatter()
+    private var datePicker: UIDatePicker
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        formatter.dateFormat = "dd/MM/yyyy"
-                
-        new.text = formatter.string(from: self.datePicker.date)
-    }
         
-        
-    @IBAction func selection(_ sender: Any) {
-        new.text = formatter.string(from: self.datePicker.date)
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.addTarget(self, action: #selector(ViewController.dateChanged(datePicker:)), for: .valueChanged)
+        date.inputView = datePicker
     }
     
+    func dateChanged(datePicker: UIDatePicker){
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd/MM/yyyy"
+        dateFormatter.dateFormat = "HH:mm:ss.SSS"
+        
+        date.text = dateFormatter.string(for: datePicker.date)
+        
+        view.endEditing(true)
+    }
+    
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
 
 }
     
