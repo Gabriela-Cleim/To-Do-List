@@ -17,20 +17,19 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     let db = Firestore.firestore()
     
-//     Para adicionar as terafas manualmente (depois ligar com o banco e apagar)
-    struct Task {
-        var descricao: String
-        var status: String
-        var data: String
-        var idUser: String
-    }
-    
     var tasks: [Task] = []
-// fim das tarefas
+    var taskSelected = Task(id: "", descricao: "", status: "", data: "", idUser: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getData()
+        setupTableView()
+        showTimeLabel()
+    }
+    
+    // MARK: PRIVATE FUNCTIONS
+    fileprivate func getData(){
         let user = Auth.auth().currentUser
         if let user = user {
             let email = user.email
@@ -41,20 +40,30 @@ class HomeViewController: UIViewController, UITableViewDelegate {
                 } else {
                     for doc in querySnapshot!.documents {
                         let data = doc.data()
-                        self.tasks.append(Task(descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
+                        self.tasks.append(Task(id: doc.documentID, descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
                         self.tableView.reloadData()
                     }
                 }
             }
         }
-        
+    }
+    
+    fileprivate func setupTableView(){
+        // Instanciando o delegate e o dataSource.
         self.tableView.allowsSelection = true
         self.tableView.allowsFocus = true
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
-        
-        showTimeLabel()
+    }
+    
+    // Passando por parametro os valores
+    // MARK: NAVIGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "taskSegue") {
+            let vc = segue.destination as? TaskViewController
+            vc?.taskSelected = taskSelected
+        }
     }
     
     //para esconder o navigation bar
@@ -100,7 +109,8 @@ extension HomeViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        print("oioi")
+        taskSelected = self.tasks[indexPath.row]
+        performSegue(withIdentifier: "taskSegue", sender: self)
     }
     
     
