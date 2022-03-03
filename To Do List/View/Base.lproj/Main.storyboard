@@ -176,7 +176,7 @@
         <!--Home-->
         <scene sceneID="QU7-zC-GoG">
             <objects>
-                <viewController id="TtL-LV-eBD" customClass="HomeViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TtL-LV-eBD" customClass="HomeViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Wq9-G0-L7E">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -255,6 +255,7 @@
                     <connections>
                         <outlet property="hourLabel" destination="TNl-Rf-pop" id="AAN-Kb-TGl"/>
                         <outlet property="tableView" destination="uGh-jm-psd" id="3CI-Ta-IOq"/>
+                        <segue destination="XeT-5d-HS9" kind="show" identifier="taskSegue" id="dMu-WS-zhw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -264,7 +265,7 @@
         <!--Task-->
         <scene sceneID="7Uu-Ya-Hop">
             <objects>
-                <viewController id="XeT-5d-HS9" customClass="TaskViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="TaskViewController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="XeT-5d-HS9" customClass="TaskViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hCk-Ni-ODP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -301,16 +302,16 @@
                                 </buttonConfiguration>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kX-gu-5fR">
-                                <rect key="frame" x="49" y="82" width="316" height="85"/>
+                                <rect key="frame" x="49" y="126" width="316" height="85"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Task to do:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-iv-vMw">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Task to do:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3JA-iv-vMw">
                                         <rect key="frame" x="14" y="18" width="106" height="25.5"/>
                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Clean the house" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM0-t2-cbj">
-                                        <rect key="frame" x="14" y="46.5" width="123.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JM0-t2-cbj">
+                                        <rect key="frame" x="14" y="46.5" width="0.0" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -327,19 +328,19 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleAspectFit" translatesAutoresizingMaskIntoConstraints="NO" id="Zgg-1t-F9N">
-                                <rect key="frame" x="49" y="192" width="316" height="134"/>
+                                <rect key="frame" x="49" y="236" width="316" height="90"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="AfJ-OC-fgC">
-                                        <rect key="frame" x="14" y="5" width="288" height="124"/>
+                                        <rect key="frame" x="14" y="5" width="288" height="80"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="When:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Xg-oM-IBJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="288" height="60.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="38.5"/>
                                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="Ik6-V2-txj">
-                                                <rect key="frame" x="0.0" y="63.5" width="288" height="60.5"/>
+                                                <rect key="frame" x="0.0" y="41.5" width="288" height="38.5"/>
                                             </datePicker>
                                         </subviews>
                                     </stackView>
@@ -379,6 +380,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Task" id="sY6-GD-MqC"/>
                     <connections>
+                        <outlet property="descriptionLabel" destination="JM0-t2-cbj" id="uJU-gR-Knq"/>
                         <outlet property="taskView" destination="2kX-gu-5fR" id="avS-Mt-aEx"/>
                         <outlet property="whenView" destination="Zgg-1t-F9N" id="5Xp-NE-S7L"/>
                     </connections>
