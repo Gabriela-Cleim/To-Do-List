@@ -255,7 +255,7 @@
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
                                 <action selector="logout:" destination="xcg-FI-Mvh" id="RIl-79-yKN"/>
-                                <segue destination="xcg-FI-Mvh" kind="unwind" unwindAction="unwindToLogin:" id="yxD-Fa-YPk"/>
+                                <segue destination="xcg-FI-Mvh" kind="unwind" unwindAction="unwindToLogin:" id="Wwe-M4-4zD"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
