@@ -43,6 +43,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resetForm()
+        
+        auth = Auth.auth()
+                auth.addStateDidChangeListener { (autenticacao, user) in
+                    if user != nil {
+                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    }else{
+                        print("User não logado")
+                    }
+                }
 
     }
     
