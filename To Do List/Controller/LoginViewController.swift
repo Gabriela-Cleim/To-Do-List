@@ -17,7 +17,9 @@ class LoginViewController: UIViewController {
     var auth: Auth!
     
     
-  
+    @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
+        
+    }
     
     
     @IBAction func login(_ sender: Any) {
