@@ -77,8 +77,8 @@ extension HomeViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TaskCell
-//        cell.textLabel?.text = tasks[indexPath.row].taskName
         cell.taskLabel.text = tasks[indexPath.row].descricao
+        
         // Adicionando um target para pegar a mudanca do switch
         cell.taskSwitch.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
        
@@ -101,14 +101,24 @@ extension HomeViewController : UITableViewDataSource {
                 // quando for fazer com o bdd, checar se o sender ta on ou off
             print("sender tag: \(sender.tag)")
             
-            // Para apagar o inativo
-            // ISSO AQUI AINDA NAO FUNCIONA
-            
-    //        tableView.beginUpdates()
-    ////        tasks.remove(at: sender.tag)
-    //        tableView.deleteRows(at: [sender.tag], with: .fade)
-    //        tableView.endUpdates()
         }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            print("TESTEEEEE")
+            //Deletar o item no array tasks
+            tasks.remove(at: indexPath.row)
+            // deletar do banco
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
 }
 
 
