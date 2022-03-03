@@ -10,7 +10,7 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet var tableView: UITableView!
@@ -48,8 +48,11 @@ class HomeViewController: UIViewController {
             }
         }
         
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
+        self.tableView.allowsSelection = true
+        self.tableView.allowsFocus = true
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
         
         showTimeLabel()
     }
@@ -97,7 +100,7 @@ extension HomeViewController : UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
-        
+        print("oioi")
     }
     
     
