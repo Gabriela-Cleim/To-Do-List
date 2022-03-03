@@ -253,13 +253,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Home" id="n0r-UI-res">
+                        <barButtonItem key="backBarButtonItem" title="Home" id="If3-LG-EKA"/>
                         <barButtonItem key="rightBarButtonItem" title="Logout" id="FUE-Yz-iba">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
                                 <action selector="logout:" destination="xcg-FI-Mvh" id="RIl-79-yKN"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="backBarButtonItem" title="Home" id="If3-LG-EKA"/>
                     </navigationItem>
                     <connections>
                         <outlet property="hourLabel" destination="TNl-Rf-pop" id="AAN-Kb-TGl"/>

@@ -109,15 +109,7 @@ class LoginViewController: UIViewController {
         alert.addAction( action )
         present(alert, animated: true, completion: nil)
     }
-    
-    
-    @IBAction func logout(_ sender: Any){
-             do {
-                 try auth.signOut()
-             } catch {
-                 print("Erro ao deslogar")
-             }
-         }
+
     
     //para esconder o navigation bar
     override func viewWillAppear(_ animated: Bool) {
