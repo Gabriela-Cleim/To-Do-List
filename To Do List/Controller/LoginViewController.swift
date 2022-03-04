@@ -14,9 +14,12 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
+    var auth: Auth!
     
     
-    
+    @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
+        
+    }
     
     
     @IBAction func login(_ sender: Any) {
@@ -40,6 +43,15 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         resetForm()
+        
+        auth = Auth.auth()
+                auth.addStateDidChangeListener { (autenticacao, user) in
+                    if user != nil {
+                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    }else{
+                        print("User não logado")
+                    }
+                }
 
     }
     
@@ -109,8 +121,7 @@ class LoginViewController: UIViewController {
         alert.addAction( action )
         present(alert, animated: true, completion: nil)
     }
-    
-    
+
     
     //para esconder o navigation bar
     override func viewWillAppear(_ animated: Bool) {

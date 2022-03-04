@@ -216,6 +216,18 @@
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="75"/>
                                         </userDefinedRuntimeAttributes>
                                     </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fWI-5l-F8X">
+                                        <rect key="frame" x="328" y="81" width="86" height="31"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" title="Logout">
+                                            <fontDescription key="titleFontDescription" type="system" pointSize="16"/>
+                                            <color key="baseForegroundColor" systemColor="systemRedColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="xcg-FI-Mvh" kind="unwind" unwindAction="unwindToLogin:" id="tdF-w9-xdi"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.46666666666666667" green="0.8784313725490196" blue="0.81960784313725488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
@@ -259,6 +271,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="r79-mH-Rmz" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="xcg-FI-Mvh" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1321.7391304347827" y="434.59821428571428"/>
         </scene>
@@ -416,7 +429,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wuS-fx-GqF"/>
+        <segue reference="yEp-nt-fMg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="966-9665317_placeholder-image-person-jpg.png" width="820" height="678"/>
