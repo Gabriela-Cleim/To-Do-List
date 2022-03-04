@@ -28,7 +28,7 @@ class IncludeViewController: UIViewController {
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "dd/MM/yyyy, HH:mm"
+        dateFormatter.dateFormat = "yyyy-mm-dd hh:nn:ss"
         
         newTask.text = dateFormatter.string(for: datePicker.date)
         
