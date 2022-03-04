@@ -19,6 +19,10 @@ class TaskViewController: UIViewController {
         taskView.layer.cornerRadius = 20
         whenView.layer.cornerRadius = 20
         
+        if (taskSelected.status == "Done") {
+            
+        }
+        
         descriptionLabel.text = taskSelected.descricao
         print(taskSelected)
     }
