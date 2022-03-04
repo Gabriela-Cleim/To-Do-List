@@ -61,7 +61,7 @@
                                 <color key="highlightedColor" systemColor="systemRedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="012-pm-3jb">
-                                <rect key="frame" x="40" y="689" width="316" height="49"/>
+                                <rect key="frame" x="49" y="689" width="316" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Login">
@@ -514,7 +514,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="yEp-nt-fMg"/>
+        <segue reference="wuS-fx-GqF"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="966-9665317_placeholder-image-person-jpg.png" width="820" height="678"/>
