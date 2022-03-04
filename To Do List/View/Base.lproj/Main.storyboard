@@ -328,6 +328,13 @@
                                     <action selector="saveBtn:" destination="FYC-xz-f2C" eventType="touchUpInside" id="ciG-3D-mOY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preencha todos os campos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-Je-eY3">
+                                <rect key="frame" x="40" y="391" width="317" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0ti-kF-dBh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -335,12 +342,13 @@
                     <navigationItem key="navigationItem" title="New Task" id="NOg-e7-J9e"/>
                     <connections>
                         <outlet property="dateTask" destination="d9O-wx-HgG" id="4FT-A0-lHD"/>
-                        <outlet property="newTask" destination="d9O-wx-HgG" id="h5h-O5-QkN"/>
+                        <outlet property="labelText" destination="B5n-Je-eY3" id="isT-G7-lkE"/>
+                        <outlet property="newTask" destination="Rdv-ir-zF6" id="eJT-FZ-09W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfl-9f-r6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2612" y="435"/>
+            <point key="canvasLocation" x="2611.594202898551" y="434.59821428571428"/>
         </scene>
         <!--Task-->
         <scene sceneID="7Uu-Ya-Hop">

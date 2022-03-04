@@ -13,8 +13,10 @@ class IncludeViewController: UIViewController {
     
     let db = Firestore.firestore()
     
+    
     @IBOutlet weak var newTask: UITextField!
     @IBOutlet weak var dateTask: UITextField!
+    @IBOutlet weak var labelText: UILabel!
     
     private var datePicker = UIDatePicker()
     
@@ -34,7 +36,7 @@ class IncludeViewController: UIViewController {
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-mm-dd hh:nn:ss"
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         
         dateTask.text = dateFormatter.string(for: datePicker.date)
         
@@ -43,8 +45,11 @@ class IncludeViewController: UIViewController {
     
     @IBAction func saveBtn(_ sender: UIButton) {
         if (newTask.text == "" || dateTask.text == "") {
-//          textLabel.text = "Preencha todos os campos..."
+          labelText.text = "Preencha todos os campos..."
+        
+            
         }
+    
         else {
             //conexao com o banco
             let user = Auth.auth().currentUser
@@ -67,6 +72,6 @@ class IncludeViewController: UIViewController {
             }
         }
     }
-    
+
 
 }
