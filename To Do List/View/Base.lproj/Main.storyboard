@@ -384,6 +384,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="deleteClick:" destination="XeT-5d-HS9" eventType="touchUpInside" id="i5X-bA-Rte"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sFo-PB-LLB">
                                 <rect key="frame" x="49" y="713" width="316" height="50"/>
@@ -398,6 +401,9 @@
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="doneClick:" destination="XeT-5d-HS9" eventType="touchUpInside" id="XLM-03-g0o"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2kX-gu-5fR">
                                 <rect key="frame" x="49" y="126" width="316" height="85"/>
