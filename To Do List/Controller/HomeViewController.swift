@@ -96,6 +96,11 @@ extension HomeViewController : UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TaskCell
         cell.taskLabel.text = tasks[indexPath.row].descricao
         
+        // Tarefas com status Undone desmarcadas no switch
+        if tasks[indexPath.row].status == "Undone" {
+            cell.taskSwitch.setOn(false, animated: true)
+        }
+        
         // Adicionando um target para pegar a mudanca do switch
         cell.taskSwitch.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
        
@@ -115,14 +120,20 @@ extension HomeViewController : UITableViewDataSource {
     
     
     @objc func switchChanged(_ sender: UISwitch!) {
-            print ("changed ")
-            print("the switch is \(sender.isOn ? "ON" : "OFF") ")
+        print("the switch is \(sender.isOn ? "ON" : "OFF") ")
         
-
-            // Mudando o status da task
+        // Mudando o status da task localmente
+            // falta só atualizar no banco
+        if sender.isOn {
             self.tasks[sender.tag].status = "Done"
-                // quando for fazer com o bdd, checar se o sender ta on ou off
-            print("sender tag: \(sender.tag)")
+            print("mudou para done")
+        }
+        else {
+            self.tasks[sender.tag].status = "Undone"
+            print("undone")
+        }
+            
+        
             
         }
 
@@ -134,7 +145,6 @@ extension HomeViewController : UITableViewDataSource {
         if editingStyle == .delete {
             tableView.beginUpdates()
             
-            print("TESTEEEEE")
             //Deletar o item no array tasks
             tasks.remove(at: indexPath.row)
             
