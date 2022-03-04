@@ -14,6 +14,7 @@ class IncludeViewController: UIViewController {
     let db = Firestore.firestore()
     
     @IBOutlet weak var newTask: UITextField!
+    @IBOutlet weak var dateTask: UITextField!
     
     private var datePicker = UIDatePicker()
     
@@ -23,18 +24,21 @@ class IncludeViewController: UIViewController {
         
         datePicker.datePickerMode = .dateAndTime
         datePicker.addTarget(self, action: #selector(IncludeViewController.dateChanged(datePicker:)), for: .valueChanged)
-        newTask.inputView = datePicker
+        dateTask.inputView = datePicker
+    }
+    
+    //para mostrar o navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yyyy-mm-dd hh:nn:ss"
         
-        newTask.text = dateFormatter.string(for: datePicker.date)
+        dateTask.text = dateFormatter.string(for: datePicker.date)
         
         view.endEditing(true)
-    
-    
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
@@ -45,9 +49,9 @@ class IncludeViewController: UIViewController {
         let user = Auth.auth().currentUser
         if let user = user {
             db.collection("tasks").addDocument(data: [
-                "Descricao": "Teste Natalia", //colocar o newTask.text,
+                "Descricao": newTask.text, //colocar o newTask.text,
                 "Status": "Undone",
-                "Data": "Teste",//colocar a data
+                "Data": dateTask.text,//colocar a data
                 "IdUser": user.uid
             ])
             { err in

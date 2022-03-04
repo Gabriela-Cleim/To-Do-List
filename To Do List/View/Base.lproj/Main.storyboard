@@ -278,7 +278,7 @@
             </objects>
             <point key="canvasLocation" x="1501" y="435"/>
         </scene>
-        <!--Include View Controller-->
+        <!--New Task-->
         <scene sceneID="g4X-vL-j6x">
             <objects>
                 <viewController id="FYC-xz-f2C" customClass="IncludeViewController" customModule="To_Do_List" customModuleProvider="target" sceneMemberID="viewController">
@@ -332,8 +332,9 @@
                         <viewLayoutGuide key="safeArea" id="0ti-kF-dBh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <navigationItem key="navigationItem" id="NOg-e7-J9e"/>
+                    <navigationItem key="navigationItem" title="New Task" id="NOg-e7-J9e"/>
                     <connections>
+                        <outlet property="dateTask" destination="d9O-wx-HgG" id="4FT-A0-lHD"/>
                         <outlet property="newTask" destination="d9O-wx-HgG" id="h5h-O5-QkN"/>
                     </connections>
                 </viewController>
