@@ -10,7 +10,10 @@
 
 import Foundation
 
-//
-//struct Task {
-//    let taskName: String
-//}
+struct Task {
+    let id: String
+    let descricao: String
+    var status: String
+    let data: String
+    let idUser: String
+}
