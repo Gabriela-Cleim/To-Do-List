@@ -34,13 +34,13 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         if let user = user {
             let email = user.email
             let uid = user.uid
-            db.collection("tasks").whereField("IdUser", isEqualTo: uid).addSnapshotListener() { [self] (querySnapshot, err) in
+            db.collection("tasks").whereField("IdUser", isEqualTo: uid).getDocuments() { [self] (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
                     for doc in querySnapshot!.documents {
                         let data = doc.data()
-                        self.tasks.append(Task(id: doc.documentID, descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
+                        tasks.append(Task(id: doc.documentID, descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
                         self.tableView.reloadData()
                     }
                 }
@@ -122,20 +122,18 @@ extension HomeViewController : UITableViewDataSource {
     @objc func switchChanged(_ sender: UISwitch!) {
         print("the switch is \(sender.isOn ? "ON" : "OFF") ")
         
-        // Mudando o status da task localmente
-            // falta só atualizar no banco
+        let documentId = tasks[sender.tag].id
         if sender.isOn {
             self.tasks[sender.tag].status = "Done"
+            db.collection("tasks").document(documentId).updateData(["Status" : "Done"])
             print("mudou para done")
         }
         else {
             self.tasks[sender.tag].status = "Undone"
+            db.collection("tasks").document(documentId).updateData(["Status" : "Undone"])
             print("undone")
         }
-            
-        
-            
-        }
+    }
 
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
         return .delete
