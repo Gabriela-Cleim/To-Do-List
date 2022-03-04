@@ -36,17 +36,18 @@ class IncludeViewController: UIViewController {
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        dateFormatter.dateFormat = ""
         
         dateTask.text = dateFormatter.string(for: datePicker.date)
         
         view.endEditing(true)
     }
     
-    @IBAction func saveBtn(_ sender: UIButton) {
-        if (newTask.text == "" || dateTask.text == "") {
-          labelText.text = "Preencha todos os campos..."
         
+    @IBAction func saveBtn(_ sender: Any) {
+    if (newTask.text == "" || dateTask.text == "") {
+          labelText.text = "Preencha todos os campos..."
+    
             
         }
     
