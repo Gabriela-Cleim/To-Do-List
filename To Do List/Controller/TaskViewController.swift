@@ -33,7 +33,14 @@ class TaskViewController: UIViewController {
     @IBAction func doneClick(_ sender: Any) {
         db.collection("tasks").document(taskSelected.id).updateData(["Status" : "Done"])
     }
+    
     @IBAction func deleteClick(_ sender: Any) {
-        
+        db.collection("tasks").document(taskSelected.id).delete() { err in
+            if let err = err {
+                print("Error removing document: \(err)")
+            } else {
+                print("Document successfully removed!")
+            }
+        }
     }
 }
