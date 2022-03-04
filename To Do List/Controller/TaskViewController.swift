@@ -10,10 +10,20 @@ import UIKit
 
 class TaskViewController: UIViewController {
     
+    @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var taskView: UIView!
     @IBOutlet weak var whenView: UIView!
+    var taskSelected = Task(id: "", descricao: "", status: "", data: "", idUser: "")
+    
     override func viewDidLoad() {
         taskView.layer.cornerRadius = 20
         whenView.layer.cornerRadius = 20
+        
+        descriptionLabel.text = taskSelected.descricao
+        print(taskSelected)
+    }
+    //para mostrar o navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(false, animated: true)
     }
 }

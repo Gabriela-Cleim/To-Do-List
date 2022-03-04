@@ -10,27 +10,26 @@ import Foundation
 import Firebase
 import FirebaseAuth
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController, UITableViewDelegate {
     
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
     let db = Firestore.firestore()
     
-//     Para adicionar as terafas manualmente (depois ligar com o banco e apagar)
-    struct Task {
-        var descricao: String
-        var status: String
-        var data: String
-        var idUser: String
-    }
-    
     var tasks: [Task] = []
-// fim das tarefas
+    var taskSelected = Task(id: "", descricao: "", status: "", data: "", idUser: "")
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        getData()
+        setupTableView()
+        showTimeLabel()
+    }
+    
+    // MARK: PRIVATE FUNCTIONS
+    fileprivate func getData(){
         let user = Auth.auth().currentUser
         if let user = user {
             let email = user.email
@@ -41,17 +40,35 @@ class HomeViewController: UIViewController {
                 } else {
                     for doc in querySnapshot!.documents {
                         let data = doc.data()
-                        tasks.append(Task(descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
+                        tasks.append(Task(id: doc.documentID, descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
                         self.tableView.reloadData()
                     }
                 }
             }
         }
-        
-        tableView.dataSource = self
-        tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
-        
-        showTimeLabel()
+    }
+    
+    fileprivate func setupTableView(){
+        // Instanciando o delegate e o dataSource.
+        self.tableView.allowsSelection = true
+        self.tableView.allowsFocus = true
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+        self.tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
+    }
+    
+    // Passando por parametro os valores
+    // MARK: NAVIGATION
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if(segue.identifier == "taskSegue") {
+            let vc = segue.destination as? TaskViewController
+            vc?.taskSelected = taskSelected
+        }
+    }
+    
+    //para esconder o navigation bar
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: true)
     }
     
     //mostra mensagem inicial de acordo com o horário do sistema
@@ -59,9 +76,9 @@ class HomeViewController: UIViewController {
         let hour = Calendar.current.component(.hour, from: Date())
         
         switch hour {
-        case 6..<12 : (hourLabel.text = "Good Morning")
+        case 0..<12 : (hourLabel.text = "Good Morning")
         case 12..<18 : (hourLabel.text = "Good Afternoon")
-        case 18..<6 : (hourLabel.text = "Good Night")
+        case 18..<24 : (hourLabel.text = "Good Night")
         default:
             (hourLabel.text = "Hello")
         }
@@ -77,8 +94,13 @@ extension HomeViewController : UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ReusableCell", for: indexPath) as! TaskCell
-//        cell.textLabel?.text = tasks[indexPath.row].taskName
         cell.taskLabel.text = tasks[indexPath.row].descricao
+        
+        // Tarefas com status Undone desmarcadas no switch
+        if tasks[indexPath.row].status == "Undone" {
+            cell.taskSwitch.setOn(false, animated: true)
+        }
+        
         // Adicionando um target para pegar a mudanca do switch
         cell.taskSwitch.addTarget(self, action: #selector(self.switchChanged(_:)), for: .valueChanged)
        
@@ -91,24 +113,53 @@ extension HomeViewController : UITableViewDataSource {
         print(self.tasks[indexPath.row])
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath){
+        taskSelected = self.tasks[indexPath.row]
+        performSegue(withIdentifier: "taskSegue", sender: self)
+    }
+    
+    
     @objc func switchChanged(_ sender: UISwitch!) {
-            print ("changed ")
-            print("the switch is \(sender.isOn ? "ON" : "OFF") ")
+        print("the switch is \(sender.isOn ? "ON" : "OFF") ")
         
-
-            // Mudando o status da task
+        let documentId = tasks[sender.tag].id
+        if sender.isOn {
             self.tasks[sender.tag].status = "Done"
-                // quando for fazer com o bdd, checar se o sender ta on ou off
-            print("sender tag: \(sender.tag)")
-            
-            // Para apagar o inativo
-            // ISSO AQUI AINDA NAO FUNCIONA
-            
-    //        tableView.beginUpdates()
-    ////        tasks.remove(at: sender.tag)
-    //        tableView.deleteRows(at: [sender.tag], with: .fade)
-    //        tableView.endUpdates()
+            db.collection("tasks").document(documentId).updateData(["Status" : "Done"])
+            print("mudou para done")
         }
+        else {
+            self.tasks[sender.tag].status = "Undone"
+            db.collection("tasks").document(documentId).updateData(["Status" : "Undone"])
+            print("undone")
+        }
+    }
+
+    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+        return .delete
+    }
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            tableView.beginUpdates()
+            
+            //Deletar o item no array tasks
+            tasks.remove(at: indexPath.row)
+            
+            // deletar do banco
+            let documentId = tasks[indexPath.row].id
+            db.collection("tasks").document(documentId).delete() { err in
+                if let err = err {
+                    print("Error removing document: \(err)")
+                } else {
+                    print("Document successfully removed!")
+                }
+            }
+            
+            tableView.deleteRows(at: [indexPath], with: .fade)
+            tableView.endUpdates()
+        }
+    }
 }
 
 
