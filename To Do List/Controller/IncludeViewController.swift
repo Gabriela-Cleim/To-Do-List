@@ -42,29 +42,30 @@ class IncludeViewController: UIViewController {
     }
     
     @IBAction func saveBtn(_ sender: UIButton) {
-        //verificar se os dois campos foram preenchidos
-        
-        
-        //conexao com o banco
-        let user = Auth.auth().currentUser
-        if let user = user {
-            db.collection("tasks").addDocument(data: [
-                "Descricao": newTask.text, //colocar o newTask.text,
-                "Status": "Undone",
-                "Data": dateTask.text,//colocar a data
-                "IdUser": user.uid
-            ])
-            { err in
-                if let err = err {
-                    print("Error writing document: \(err)")
-                } else {
-                    print("Document successfully written!")
-                    //voltar para o home
-                    
+        if (newTask.text == "" || dateTask.text == "") {
+//          textLabel.text = "Preencha todos os campos..."
+        }
+        else {
+            //conexao com o banco
+            let user = Auth.auth().currentUser
+            if let user = user {
+                db.collection("tasks").addDocument(data: [
+                    "Descricao": newTask.text, //colocar o newTask.text,
+                    "Status": "Undone",
+                    "Data": dateTask.text,//colocar a data
+                    "IdUser": user.uid
+                ])
+                { err in
+                    if let err = err {
+                        print("Error writing document: \(err)")
+                    } else {
+                        print("Document successfully written!")
+                        //voltar para o home
+                        
+                    }
                 }
             }
         }
-        
     }
     
 
