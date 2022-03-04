@@ -50,6 +50,7 @@ class HomeViewController: UIViewController, UITableViewDelegate {
     
     fileprivate func setupTableView(){
         // Instanciando o delegate e o dataSource.
+        self.tableView.layer.cornerRadius = 20
         self.tableView.allowsSelection = true
         self.tableView.allowsFocus = true
         self.tableView.delegate = self
