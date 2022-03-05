@@ -13,7 +13,6 @@ class IncludeViewController: UIViewController {
     
     let db = Firestore.firestore()
     
-    
     @IBOutlet weak var newTask: UITextField!
     @IBOutlet weak var dateTask: UITextField!
     @IBOutlet weak var labelText: UILabel!

@@ -30,21 +30,20 @@ class TaskViewController: UIViewController {
         whenView.layer.cornerRadius = 20
         doneButton.layer.cornerRadius = 15
         datePicker.isEnabled = false
+        
         if (taskSelected.status == "Done") {
             doneButton.isEnabled = false
             doneButton.setTitle("Task Done", for: UIControl.State.normal)
             doneButton.backgroundColor = UIColor.lightGray
         }
         
-        descriptionLabel.text = taskSelected.descricao
-        
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat =  "MM-dd-yyyy HH:mm"
         let date = dateFormatter.date(from: taskSelected.data)
         datePicker.date = date!
+        descriptionLabel.text = taskSelected.descricao
     }
     
-    // MARK: 
     //para mostrar o navigation bar
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -76,6 +75,7 @@ class TaskViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
+    //button click action
     @IBAction func doneClick(_ sender: Any) {
         db.collection("tasks").document(taskSelected.id).updateData(["Status" : "Done"])
         performSegue(withIdentifier: "homeSegue", sender: self)
