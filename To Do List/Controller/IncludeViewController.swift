@@ -36,7 +36,7 @@ class IncludeViewController: UIViewController {
     
     @objc func dateChanged(datePicker: UIDatePicker){
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = ""
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         
         dateTask.text = dateFormatter.string(for: datePicker.date)
         

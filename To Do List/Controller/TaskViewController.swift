@@ -21,23 +21,30 @@ class TaskViewController: UIViewController {
     let db = Firestore.firestore()
     
     override func viewDidLoad() {
+        setupView()
+    }
+    
+    // MARK: PRIVATE FUNCTIONS
+    fileprivate func setupView(){
         taskView.layer.cornerRadius = 20
         whenView.layer.cornerRadius = 20
+        doneButton.layer.cornerRadius = 15
         datePicker.isEnabled = false
         if (taskSelected.status == "Done") {
             doneButton.isEnabled = false
             doneButton.setTitle("Task Done", for: UIControl.State.normal)
             doneButton.backgroundColor = UIColor.lightGray
-            doneButton.layer.cornerRadius = 15
-        }
-        
-        if (taskSelected.status == "Done") {
-            
         }
         
         descriptionLabel.text = taskSelected.descricao
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat =  "MM-dd-yyyy HH:mm"
+        let date = dateFormatter.date(from: taskSelected.data)
+        datePicker.date = date!
     }
     
+    // MARK: 
     //para mostrar o navigation bar
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
