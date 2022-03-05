@@ -16,6 +16,21 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTF: UITextField!
     var auth: Auth!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        loginButton.layer.cornerRadius = 15
+        
+        resetForm()
+        
+        auth = Auth.auth()
+        auth.addStateDidChangeListener { (autenticacao, user) in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }else{
+                print("User não logado")
+            }
+        }
+    }
     
     @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
         
@@ -39,30 +54,10 @@ class LoginViewController: UIViewController {
         }
     }
     
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        resetForm()
-        
-        auth = Auth.auth()
-                auth.addStateDidChangeListener { (autenticacao, user) in
-                    if user != nil {
-                        self.performSegue(withIdentifier: "loginSegue", sender: nil)
-                    }else{
-                        print("User não logado")
-                    }
-                }
-
-    }
-    
-    
-    
-    
-    
-    
     //invalid email
     func resetForm() {
         loginButton.isEnabled = false
+        loginButton.backgroundColor = UIColor.lightGray
         
         emailError.isHidden = false
         emailError.text = ""
@@ -103,8 +98,10 @@ class LoginViewController: UIViewController {
     func checkForValidForm(){
         if emailError.isHidden{
             loginButton.isEnabled = true
+            loginButton.backgroundColor = UIColor.cyan
         }else{
             loginButton.isEnabled = false
+            loginButton.backgroundColor = UIColor.lightGray
         }
     }
     
