@@ -17,6 +17,7 @@
 		77C3F1FA27CB3B6B008A1313 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 77C3F1F927CB3B6B008A1313 /* GoogleService-Info.plist */; };
 		77EE44D227CB4D2200961267 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE44D127CB4D2200961267 /* LoginViewController.swift */; };
 		77EE44D427CB4D4200961267 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77EE44D327CB4D4200961267 /* RegisterViewController.swift */; };
+		AEB5243C27D0F5C0003BE4AD /* IncludeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEB5243B27D0F5C0003BE4AD /* IncludeViewController.swift */; };
 		8C3518A127D046C900E5132C /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3518A027D046C900E5132C /* Task.swift */; };
 		8C3518A427D04CA500E5132C /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8C3518A227D04CA500E5132C /* TaskCell.swift */; };
 		8C3518A527D04CA500E5132C /* TaskCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8C3518A327D04CA500E5132C /* TaskCell.xib */; };
@@ -42,6 +43,7 @@
 		8C3518A227D04CA500E5132C /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		8C3518A327D04CA500E5132C /* TaskCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TaskCell.xib; sourceTree = "<group>"; };
 		98EAC68D630B3225B43F60B4 /* Pods-To Do List.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-To Do List.release.xcconfig"; path = "Target Support Files/Pods-To Do List/Pods-To Do List.release.xcconfig"; sourceTree = "<group>"; };
+		AEB5243B27D0F5C0003BE4AD /* IncludeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncludeViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +115,7 @@
 				77EE44D127CB4D2200961267 /* LoginViewController.swift */,
 				77EE44D327CB4D4200961267 /* RegisterViewController.swift */,
 				0842473127CD228A00E8205D /* HomeViewController.swift */,
+				AEB5243B27D0F5C0003BE4AD /* IncludeViewController.swift */,
 				347C444A27CFB509002F725E /* TaskViewController.swift */,
 			);
 			path = Controller;
@@ -254,6 +257,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0842473227CD228A00E8205D /* HomeViewController.swift in Sources */,
+				AEB5243C27D0F5C0003BE4AD /* IncludeViewController.swift in Sources */,
 				8C3518A427D04CA500E5132C /* TaskCell.swift in Sources */,
 				77EE44D227CB4D2200961267 /* LoginViewController.swift in Sources */,
 				77C3F1E527CB3A6B008A1313 /* AppDelegate.swift in Sources */,
