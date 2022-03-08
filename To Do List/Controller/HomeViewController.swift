@@ -68,18 +68,14 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         var username = ""
         let user = Auth.auth().currentUser
         if let user = user {
-            db.collection("Users").getDocuments(){ (querySnapshot, error) in
+            db.collection("Users").document(user.uid).getDocument(source: .cache) { (document, error) in
                 if let error = error {
                     print("Error getting documents: \(error)")
-                } else {
-                    print("teste")
-                    for document in querySnapshot!.documents {
-                        let data = document.data()
-                        if(document.documentID == user.uid){
-                            username = (data["displayName"] as! String)
-                            self.showWelcomeLabel(username: username)
-                            break
-                        }
+                }  else if let document = document {
+                    let data = document.data()
+                    if document.documentID == user.uid, data!["displayName"] != nil  {
+                        username = (data!["displayName"] as! String)
+                        self.showWelcomeLabel(username: username)
                     }
                 }
             }
