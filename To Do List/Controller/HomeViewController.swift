@@ -34,14 +34,17 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         if let user = user {
             let email = user.email
             let uid = user.uid
-            db.collection("tasks").whereField("IdUser", isEqualTo: uid).getDocuments() { [self] (querySnapshot, err) in
+            db.collection("tasks").whereField("IdUser", isEqualTo: uid).addSnapshotListener() { [self] (querySnapshot, err) in
                 if let err = err {
                     print("Error getting documents: \(err)")
                 } else {
+                    tasks = []
                     for doc in querySnapshot!.documents {
                         let data = doc.data()
-                        tasks.append(Task(id: doc.documentID, descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
-                        self.tableView.reloadData()
+                        if data["Descricao"] != nil, data["Status"] != nil, data["Data"] != nil, data["IdUser"] != nil {
+                            tasks.append(Task(id: doc.documentID, descricao: data["Descricao"] as! String, status: data["Status"] as! String, data: data["Data"] as! String, idUser: data["IdUser"] as! String))
+                            self.tableView.reloadData()
+                        }
                     }
                 }
             }
