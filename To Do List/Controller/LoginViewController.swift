@@ -173,12 +173,6 @@ class LoginViewController: UIViewController {
     }//fim do cod do invalid email
     
     
-    
-    
-    
-    
-    
-    
     //Alert
     func showAlert(titulo: String, mensagem: String){
         let alert = UIAlertController(title: titulo, message: mensagem, preferredStyle: .alert)
