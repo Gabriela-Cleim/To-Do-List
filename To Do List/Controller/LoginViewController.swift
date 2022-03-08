@@ -9,7 +9,6 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-//    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var loginButton: UIButton!
@@ -32,13 +31,6 @@ class LoginViewController: UIViewController {
         resetForm()
         
         auth = Auth.auth()
-        auth.addStateDidChangeListener { (autenticacao, user) in
-            if user != nil {
-                self.performSegue(withIdentifier: "loginSegue", sender: nil)
-            }else{
-                print("User não logado")
-            }
-        }
     }
     
     @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
@@ -135,12 +127,8 @@ class LoginViewController: UIViewController {
                 passwordError.text = errorMessage
                 passwordError.isHidden = false
                 
-                /*passwordTF.layer.borderWidth = 1.0
-                passwordTF.layer.borderColor = UIColor.red.cgColor*/
-                
             }else{
                 passwordError.isHidden = true
-                /*emailTF.layer.borderWidth = 0*/
             }
                 
         }
