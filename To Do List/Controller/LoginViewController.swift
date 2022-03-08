@@ -43,6 +43,11 @@ class LoginViewController: UIViewController {
     
     @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
         
+        do{
+            try auth.signOut()
+        }catch{
+            print("Erro")
+        }
     }
     
     
