@@ -9,7 +9,7 @@ import UIKit
 import FirebaseAuth
 
 class LoginViewController: UIViewController {
-    @IBOutlet weak var email: UITextField!
+//    @IBOutlet weak var email: UITextField!
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var loginButton: UIButton!
@@ -19,6 +19,13 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 15
+        
+        emailTF.layer.cornerRadius = 20
+        emailTF.clipsToBounds = true
+        
+        password.layer.cornerRadius = 20
+        password.clipsToBounds = true
+        
         
         resetForm()
         
@@ -39,7 +46,7 @@ class LoginViewController: UIViewController {
     
     @IBAction func login(_ sender: Any) {
         //Para recuperar os dados digitados
-        if let emailRecovered = self.email.text, let passwordRecovered = self.password.text {
+        if let emailRecovered = self.emailTF.text, let passwordRecovered = self.password.text {
             //Cod para autenticar user
             let auth = Auth.auth()
             auth.signIn(withEmail: emailRecovered, password: passwordRecovered) { (user, erro) in
@@ -62,6 +69,7 @@ class LoginViewController: UIViewController {
         emailError.isHidden = false
         emailError.text = ""
         emailTF.text = ""
+        password.text = ""
         
             
     }
@@ -74,14 +82,20 @@ class LoginViewController: UIViewController {
                 emailError.text = errorMessage
                 emailError.isHidden = false
                 
+                emailTF.layer.borderWidth = 1.0
+                emailTF.layer.borderColor = UIColor.red.cgColor
+                
             }else{
                 emailError.isHidden = true
+                emailTF.layer.borderWidth = 0
             }
                 
         }
         
         checkForValidForm()
     }
+    
+    
     
     func invalidEmail( value: String) -> String?
     {
@@ -96,7 +110,7 @@ class LoginViewController: UIViewController {
     }
     
     func checkForValidForm(){
-        if emailError.isHidden{
+        if emailError.isHidden  {
             loginButton.isEnabled = true
             loginButton.backgroundColor = UIColor.cyan
         }else{
