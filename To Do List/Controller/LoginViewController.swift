@@ -69,6 +69,7 @@ class LoginViewController: UIViewController {
         loginButton.backgroundColor = UIColor.lightGray
         
         emailError.isHidden = false
+        passwordError.isHidden = false
         emailError.text = ""
         emailTF.text = ""
         password.text = ""
