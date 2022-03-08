@@ -87,7 +87,6 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="Cyl-TB-I1c"/>
                     <connections>
-                        <outlet property="email" destination="qcW-et-KV8" id="9wZ-Ep-uLR"/>
                         <outlet property="emailError" destination="05z-cd-BXv" id="1DO-ec-AiB"/>
                         <outlet property="emailTF" destination="qcW-et-KV8" id="W66-uL-nyt"/>
                         <outlet property="loginButton" destination="012-pm-3jb" id="7rm-sz-M2a"/>
