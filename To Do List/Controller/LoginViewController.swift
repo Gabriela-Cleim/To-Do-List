@@ -14,6 +14,8 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
+    @IBOutlet weak var passwordTF: UITextField!
+    @IBOutlet weak var passwordError: UILabel!
     var auth: Auth!
     
     override func viewDidLoad() {
@@ -110,18 +112,65 @@ class LoginViewController: UIViewController {
     }
     
     func checkForValidForm(){
-        if emailError.isHidden  {
+        if emailError.isHidden && passwordError.isHidden  {
             loginButton.isEnabled = true
-            loginButton.backgroundColor = UIColor.cyan
+            loginButton.backgroundColor = UIColor.strongCiano
         }else{
             loginButton.isEnabled = false
             loginButton.backgroundColor = UIColor.lightGray
         }
     }
     
+    @IBAction func passwordChanged(_ sender: Any) {
+        if let password = passwordTF.text {
+            
+            if let errorMessage = invalidPassword(value: password) {
+                
+                passwordError.text = errorMessage
+                passwordError.isHidden = false
+                
+                /*passwordTF.layer.borderWidth = 1.0
+                passwordTF.layer.borderColor = UIColor.red.cgColor*/
+                
+            }else{
+                passwordError.isHidden = true
+                /*emailTF.layer.borderWidth = 0*/
+            }
+                
+        }
+        
+        checkForValidForm()
+    }
+    
+    func invalidPassword( value: String) -> String?
+    {
+        if value.count < 6 {
+            return "Password must be at least 8 characters"
+        }
+        if containsDigit(value: value) {
+            return "Password must contain at least 1 digit"
+        }
+        
+        return nil
+    }
+    
+    func containsDigit ( value: String) -> Bool {
+        
+        let regularExpression = ".*[0-6]+.*"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
+        return !predicate.evaluate(with: value)
+    }
+    
+    
     @IBAction func loginButtonn(_ sender: Any) {
         resetForm()
     }//fim do cod do invalid email
+    
+    
+    
+    
+    
+    
     
     
     //Alert
