@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class HomeViewController: UIViewController, UITableViewDelegate {
     
+    @IBOutlet weak var welcomeLabel: UILabel!
     @IBOutlet weak var hourLabel: UILabel!
     @IBOutlet var tableView: UITableView!
     
@@ -26,6 +27,8 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         getData()
         setupTableView()
         showTimeLabel()
+        
+        getUserDetails()
     }
     
     // MARK: PRIVATE FUNCTIONS
@@ -59,6 +62,34 @@ class HomeViewController: UIViewController, UITableViewDelegate {
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.register(UINib(nibName: "TaskCell", bundle: nil ), forCellReuseIdentifier: "ReusableCell")
+    }
+    
+    fileprivate func getUserDetails(){
+        var username = ""
+        let user = Auth.auth().currentUser
+        if let user = user {
+            db.collection("Users").getDocuments(){ (querySnapshot, error) in
+                if let error = error {
+                    print("Error getting documents: \(error)")
+                } else {
+                    print("teste")
+                    for document in querySnapshot!.documents {
+                        let data = document.data()
+                        if(document.documentID == user.uid){
+                            username = (data["displayName"] as! String)
+                            self.showWelcomeLabel(username: username)
+                            break
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    
+     func showWelcomeLabel(username: String){
+        let firstName = username.components(separatedBy: "")[0]
+        welcomeLabel.text = "Welcome Back, \(firstName)"
     }
     
     // Passando por parametro os valores
