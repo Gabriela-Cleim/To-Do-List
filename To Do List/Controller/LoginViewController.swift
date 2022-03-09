@@ -121,11 +121,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func checkForValidForm(){
         if emailError.isHidden  {
-            //loginButton.isEnabled = true
             print("hidden")
             
         }else{
-            //loginButton.isEnabled = false
             print("enabled")
             
         }
