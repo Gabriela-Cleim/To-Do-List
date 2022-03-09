@@ -33,9 +33,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
-                                <connections>
-                                    <action selector="passwordChanged:" destination="BYZ-38-t0r" eventType="editingChanged" id="Xny-47-qqq"/>
-                                </connections>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ret-eo-ahJ">
                                 <rect key="frame" x="58" y="760" width="298" height="31"/>
@@ -70,13 +67,6 @@
                                     <action selector="loginButtonn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Pa-ji-IGR"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Invalid email format" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Uts-Bc-cEf">
-                                <rect key="frame" x="58" y="635" width="118" height="16"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.91764705882352937" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <color key="highlightedColor" systemColor="systemRedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Pt1-R5-sSC">
                                 <rect key="frame" x="58" y="653" width="298" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -101,8 +91,6 @@
                         <outlet property="emailTF" destination="qcW-et-KV8" id="W66-uL-nyt"/>
                         <outlet property="loginButton" destination="012-pm-3jb" id="7rm-sz-M2a"/>
                         <outlet property="password" destination="2ft-Z6-MId" id="SUr-j8-ioc"/>
-                        <outlet property="passwordError" destination="Uts-Bc-cEf" id="B9h-y9-rSX"/>
-                        <outlet property="passwordTF" destination="2ft-Z6-MId" id="cUn-9u-4HU"/>
                         <segue destination="TtL-LV-eBD" kind="show" identifier="loginSegue" id="wuS-fx-GqF"/>
                     </connections>
                 </viewController>
@@ -527,7 +515,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wuS-fx-GqF"/>
+        <segue reference="yEp-nt-fMg"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="966-9665317_placeholder-image-person-jpg.png" width="820" height="678"/>

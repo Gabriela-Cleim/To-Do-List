@@ -8,13 +8,11 @@
 import UIKit
 import FirebaseAuth
 
-class LoginViewController: UIViewController {
+class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var password: UITextField!
     @IBOutlet weak var emailError: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var emailTF: UITextField!
-    @IBOutlet weak var passwordTF: UITextField!
-    @IBOutlet weak var passwordError: UILabel!
     var auth: Auth!
     
     override func viewDidLoad() {
@@ -31,7 +29,23 @@ class LoginViewController: UIViewController {
         resetForm()
         
         auth = Auth.auth()
+        
+        
+        
+        loginButton.isEnabled = false;
+                password.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
     }
+    
+    @objc func textFieldDidChange(_ sender: UITextField) {
+        if password.text == "" || emailTF.text == ""{
+                loginButton.isEnabled = false;
+                loginButton.backgroundColor = UIColor.lightGray
+                
+            }else{
+                 loginButton.isEnabled = true;
+                 loginButton.backgroundColor = UIColor.strongCiano
+            }
+        }
     
     @IBAction func unwindToLogin(_ unwindSegue: UIStoryboardSegue) {
         
@@ -62,17 +76,14 @@ class LoginViewController: UIViewController {
     
     //invalid email
     func resetForm() {
-        loginButton.isEnabled = false
         loginButton.backgroundColor = UIColor.lightGray
-        
         emailError.isHidden = false
-        passwordError.isHidden = false
         emailError.text = ""
         emailTF.text = ""
         password.text = ""
         
-            
     }
+    
     
     @IBAction func emailChange(_ sender: Any) {
         if let email = emailTF.text {
@@ -96,7 +107,6 @@ class LoginViewController: UIViewController {
     }
     
     
-    
     func invalidEmail( value: String) -> String?
     {
         let regularExpression = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
@@ -110,51 +120,16 @@ class LoginViewController: UIViewController {
     }
     
     func checkForValidForm(){
-        if emailError.isHidden && passwordError.isHidden  {
-            loginButton.isEnabled = true
-            loginButton.backgroundColor = UIColor.strongCiano
-        }else{
-            loginButton.isEnabled = false
-            loginButton.backgroundColor = UIColor.lightGray
-        }
-    }
-    
-    @IBAction func passwordChanged(_ sender: Any) {
-        if let password = passwordTF.text {
+        if emailError.isHidden  {
+            //loginButton.isEnabled = true
+            print("hidden")
             
-            if let errorMessage = invalidPassword(value: password) {
-                
-                passwordError.text = errorMessage
-                passwordError.isHidden = false
-                
-            }else{
-                passwordError.isHidden = true
-            }
-                
+        }else{
+            //loginButton.isEnabled = false
+            print("enabled")
+            
         }
-        
-        checkForValidForm()
     }
-    
-    func invalidPassword( value: String) -> String?
-    {
-        if value.count < 6 {
-            return "Password must be at least 8 characters"
-        }
-        if containsDigit(value: value) {
-            return "Password must contain at least 1 digit"
-        }
-        
-        return nil
-    }
-    
-    func containsDigit ( value: String) -> Bool {
-        
-        let regularExpression = ".*[0-6]+.*"
-        let predicate = NSPredicate(format: "SELF MATCHES %@", regularExpression)
-        return !predicate.evaluate(with: value)
-    }
-    
     
     @IBAction func loginButtonn(_ sender: Any) {
         resetForm()
