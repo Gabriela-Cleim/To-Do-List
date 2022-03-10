@@ -340,9 +340,6 @@
                                 <color key="textColor" red="0.45882352941176469" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" textContentType="date-time"/>
-                                <connections>
-                                    <action selector="teste:" destination="FYC-xz-f2C" eventType="editingDidEnd" id="jY8-zn-i3x"/>
-                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po6-le-dWy">
                                 <rect key="frame" x="47" y="98" width="310" height="44"/>
