@@ -19,10 +19,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 15
         
-        emailTF.layer.cornerRadius = 20
+        emailTF.layer.cornerRadius = 14
         emailTF.clipsToBounds = true
         
-        password.layer.cornerRadius = 20
+        password.layer.cornerRadius = 14
         password.clipsToBounds = true
         
         
