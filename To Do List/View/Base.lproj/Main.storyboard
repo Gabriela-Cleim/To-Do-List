@@ -289,17 +289,15 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Task" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Rdv-ir-zF6">
-                                <rect key="frame" x="20" y="268" width="374" height="34"/>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="     Starts In" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="d9O-wx-HgG">
+                                <rect key="frame" x="34" y="359" width="346" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Date" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="d9O-wx-HgG">
-                                <rect key="frame" x="20" y="348" width="374" height="35"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="21"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <color key="textColor" red="0.45882352941176469" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" textContentType="date-time"/>
+                                <connections>
+                                    <action selector="teste:" destination="FYC-xz-f2C" eventType="editingDidEnd" id="jY8-zn-i3x"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Add New Task" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="po6-le-dWy">
                                 <rect key="frame" x="47" y="98" width="310" height="44"/>
@@ -315,23 +313,14 @@
                                 <color key="textColor" red="0.55725590869633845" green="0.55725590869633845" blue="0.55725590869633845" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preencha todos os campos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-Je-eY3">
-                                <rect key="frame" x="40" y="391" width="317" height="45"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TXP-Ri-oiV">
                                 <rect key="frame" x="49" y="772" width="316" height="50"/>
+                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Yzo-R9-ai2"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Done">
-                                    <backgroundConfiguration key="background" cornerRadius="15">
-                                        <color key="backgroundColor" red="0.3294117647" green="0.80784313730000001" blue="0.7843137255" alpha="1" colorSpace="calibratedRGB"/>
-                                    </backgroundConfiguration>
+                                <buttonConfiguration key="configuration" style="plain" title="Save">
                                     <fontDescription key="titleFontDescription" type="system" pointSize="18"/>
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
@@ -339,6 +328,20 @@
                                     <action selector="saveBtn:" destination="FYC-xz-f2C" eventType="touchUpInside" id="le6-72-JLt"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="     Task Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Rdv-ir-zF6">
+                                <rect key="frame" x="36" y="268" width="346" height="68"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.45882352941176469" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" textContentType="name"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Preencha todos os campos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B5n-Je-eY3">
+                                <rect key="frame" x="44" y="443" width="317" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="0ti-kF-dBh"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -353,6 +356,7 @@
                         <outlet property="dateTask" destination="d9O-wx-HgG" id="4FT-A0-lHD"/>
                         <outlet property="labelText" destination="B5n-Je-eY3" id="isT-G7-lkE"/>
                         <outlet property="newTask" destination="Rdv-ir-zF6" id="eJT-FZ-09W"/>
+                        <outlet property="saveBtn" destination="TXP-Ri-oiV" id="fpC-ko-AQj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lfl-9f-r6j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
