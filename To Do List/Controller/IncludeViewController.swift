@@ -73,13 +73,13 @@ class IncludeViewController: UIViewController {
     @IBAction func saveBtn(_ sender: Any) {
         if (newTask.text == "" || dateTask.text == "") {
               labelText.text = "Preencha todos os campos..."
-        }else {
+        }else if newTask.text != nil, dateTask.text != nil {
             let user = Auth.auth().currentUser
             if let user = user {
                 db.collection("tasks").addDocument(data: [
-                    "Descricao": newTask.text != nil,
+                    "Descricao": newTask.text,
                     "Status": "Undone",
-                    "Data": dateTask.text != nil,
+                    "Data": dateTask.text,
                     "IdUser": user.uid
                 ])
                 { err in

@@ -29,7 +29,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         resetForm()
         
         auth = Auth.auth()
-        
+        auth.addStateDidChangeListener { Auth, user in
+            if user != nil {
+                self.performSegue(withIdentifier: "loginSegue", sender: nil)
+            }else{
+                print("user nao logado")
+            }
+        }
         
         
         loginButton.isEnabled = false;
@@ -63,11 +69,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             //Cod para autenticar user
             let auth = Auth.auth()
             auth.signIn(withEmail: emailRecovered, password: passwordRecovered) { (user, erro) in
+                
                 if erro != nil{
                     self.showAlert(titulo:"Error", mensagem:"Wrong email or password, please try again.")
                 }
                 else if user != nil{
-                    self.performSegue(withIdentifier: "loginSegue", sender: nil)
+                    //self.performSegue(withIdentifier: "loginSegue", sender: nil)
                 }
                 
             }
