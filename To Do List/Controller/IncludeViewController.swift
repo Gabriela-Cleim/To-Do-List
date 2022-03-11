@@ -9,7 +9,7 @@ import UIKit
 import Firebase
 import FirebaseAuth
 
-class IncludeViewController: UIViewController, UITextFieldDelegate {
+class IncludeViewController: UIViewController {
     
     let db = Firestore.firestore()
     
@@ -23,42 +23,26 @@ class IncludeViewController: UIViewController, UITextFieldDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        createDatePicker()
-        setLayoutDetails(newTask)
-        setLayoutDetails(dateTask)
+
+        datePicker.datePickerMode = .dateAndTime
+        datePicker.addTarget(self, action: #selector(IncludeViewController.dateChanged(datePicker:)), for: .valueChanged)
+        dateTask.inputView = datePicker
         
+        saveBtn.layer.cornerRadius = 15
+        
+        newTask.borderStyle = UITextField.BorderStyle.roundedRect
+        newTask.layer.cornerRadius = 25
+        newTask.clipsToBounds = true
+        
+        dateTask.borderStyle = UITextField.BorderStyle.roundedRect
+        dateTask.layer.cornerRadius = 25
+        dateTask.clipsToBounds = true
         
         saveBtn.isEnabled = false
         newTask.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
         dateTask.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.allEditingEvents )
-        dateTask.delegate = self
-    }
-    
-    func setLayoutDetails(_ textfield: UITextField) {
-        saveBtn.layer.cornerRadius = 15
         
-        let paddingView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 2.0))
-        
-        textfield.leftView = paddingView
-        textfield.leftViewMode = .always
-        textfield.borderStyle = UITextField.BorderStyle.roundedRect
-        textfield.layer.cornerRadius = 25
-        textfield.clipsToBounds = true
     }
-    
-    func createDatePicker(){
-        datePicker.datePickerMode = .dateAndTime
-        datePicker.addTarget(self, action: #selector(IncludeViewController.dateChanged(datePicker:)), for: .valueChanged)
-        dateTask.inputView = datePicker
-    }
-    
-    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        if textField == dateTask {
-            return false; //do not show keyboard nor cursor
-        }
-        return true
-    }
-    
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(false, animated: true)
@@ -93,9 +77,9 @@ class IncludeViewController: UIViewController, UITextFieldDelegate {
             let user = Auth.auth().currentUser
             if let user = user {
                 db.collection("tasks").addDocument(data: [
-                    "Descricao": newTask.text != nil,
+                    "Descricao": newTask.text,
                     "Status": "Undone",
-                    "Data": dateTask.text != nil,
+                    "Data": dateTask.text,
                     "IdUser": user.uid
                 ])
                 { err in
