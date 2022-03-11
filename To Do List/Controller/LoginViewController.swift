@@ -18,13 +18,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         loginButton.layer.cornerRadius = 15
-        
         emailTF.layer.cornerRadius = 14
         emailTF.clipsToBounds = true
-        
         password.layer.cornerRadius = 14
         password.clipsToBounds = true
-        
         
         resetForm()
         
@@ -40,7 +37,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         loginButton.isEnabled = false;
                 password.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
+        
+        setLayoutDetails(emailTF)
+        setLayoutDetails(password)
     }
+    
+    func setLayoutDetails(_ textfield: UITextField) {
+            let paddingView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 20.0, height: 2.0))
+            
+            textfield.leftView = paddingView
+            textfield.leftViewMode = .always
+            textfield.borderStyle = UITextField.BorderStyle.roundedRect
+            textfield.layer.cornerRadius = 25
+            textfield.clipsToBounds = true
+        }
     
     @objc func textFieldDidChange(_ sender: UITextField) {
         if password.text == "" || emailTF.text == ""{
@@ -128,11 +138,9 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     func checkForValidForm(){
         if emailError.isHidden  {
-            print("hidden")
             
         }else{
-            print("enabled")
-            
+        
         }
     }
     
