@@ -334,7 +334,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="     Starts In" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="d9O-wx-HgG">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" layoutMarginsFollowReadableWidth="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Starts In" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="d9O-wx-HgG">
                                 <rect key="frame" x="34" y="359" width="346" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.45882352941176469" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -370,7 +370,7 @@
                                     <action selector="saveBtn:" destination="FYC-xz-f2C" eventType="touchUpInside" id="le6-72-JLt"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="     Task Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Rdv-ir-zF6">
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Task Name" minimumFontSize="18" translatesAutoresizingMaskIntoConstraints="NO" id="Rdv-ir-zF6">
                                 <rect key="frame" x="36" y="268" width="346" height="68"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.45882352941176469" green="0.42352941176470588" blue="0.42352941176470588" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
