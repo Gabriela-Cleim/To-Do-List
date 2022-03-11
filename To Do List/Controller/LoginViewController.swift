@@ -35,7 +35,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         }
         
         loginButton.isEnabled = false;
-                password.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
+        password.addTarget(self, action:  #selector(textFieldDidChange(_:)),  for:.editingChanged )
         
         setLayoutDetails(emailTF)
         setLayoutDetails(password)

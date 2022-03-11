@@ -166,31 +166,31 @@ extension HomeViewController : UITableViewDataSource {
         }
     }
 
-    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
-        return .delete
-    }
-    
-    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            tableView.beginUpdates()
-            
-            //Deletar o item no array tasks
-            tasks.remove(at: indexPath.row)
-            
-            // deletar do banco
-            let documentId = tasks[indexPath.row].id
-            db.collection("tasks").document(documentId).delete() { err in
-                if let err = err {
-                    print("Error removing document: \(err)")
-                } else {
-                    print("Document successfully removed!")
-                }
-            }
-            
-            tableView.deleteRows(at: [indexPath], with: .fade)
-            tableView.endUpdates()
-        }
-    }
+//    func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
+//        return .delete
+//    }
+//
+//    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+//        if editingStyle == .delete {
+//            tableView.beginUpdates()
+//
+//            //Deletar o item no array tasks
+//            tasks.remove(at: indexPath.row)
+//
+//            // deletar do banco
+//            let documentId = tasks[indexPath.row].id
+//            db.collection("tasks").document(documentId).delete() { err in
+//                if let err = err {
+//                    print("Error removing document: \(err)")
+//                } else {
+//                    print("Document successfully removed!")
+//                }
+//            }
+//
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            tableView.endUpdates()
+//        }
+//    }
 }
 
 
